@@ -1,12 +1,6 @@
-import {
-  index,
-  integer,
-  sqliteTable,
-  text,
-  unique,
-} from "drizzle-orm/sqlite-core";
+import { index, integer, pgTable, text, unique } from "drizzle-orm/pg-core";
 
-export const workspace = sqliteTable("workspace", {
+export const workspace = pgTable("workspace", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
@@ -15,7 +9,7 @@ export const workspace = sqliteTable("workspace", {
     .$defaultFn(() => new Date().toISOString()),
 });
 
-export const project = sqliteTable(
+export const project = pgTable(
   "project",
   {
     id: text("id").primaryKey(),
@@ -38,7 +32,7 @@ export const project = sqliteTable(
   ],
 );
 
-export const costLineItem = sqliteTable(
+export const costLineItem = pgTable(
   "cost_line_item",
   {
     id: text("id").primaryKey(),
@@ -65,7 +59,7 @@ export const costLineItem = sqliteTable(
   ],
 );
 
-export const apiKeyProjectMapping = sqliteTable(
+export const apiKeyProjectMapping = pgTable(
   "api_key_project_mapping",
   {
     id: text("id").primaryKey(),
@@ -92,7 +86,7 @@ export const apiKeyProjectMapping = sqliteTable(
   ],
 );
 
-export const oidcProjectMapping = sqliteTable(
+export const oidcProjectMapping = pgTable(
   "oidc_project_mapping",
   {
     id: text("id").primaryKey(),
@@ -110,7 +104,7 @@ export const oidcProjectMapping = sqliteTable(
   (table) => [index("oidc_pm_project_idx").on(table.projectId)],
 );
 
-export const collectorRun = sqliteTable(
+export const collectorRun = pgTable(
   "collector_run",
   {
     id: text("id").primaryKey(),

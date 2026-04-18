@@ -130,13 +130,15 @@ export async function linkApiKey(
   if (!PROVIDERS.has(provider)) {
     return { error: "Invalid provider." };
   }
-  const proj = await getDb()
-    .select()
-    .from(project)
-    .where(
-      and(eq(project.id, projectId), eq(project.workspaceId, workspaceId)),
-    )
-    .get();
+  const proj = (
+    await getDb()
+      .select()
+      .from(project)
+      .where(
+        and(eq(project.id, projectId), eq(project.workspaceId, workspaceId)),
+      )
+      .limit(1)
+  )[0];
   if (!proj) {
     return { error: "Project not found in that workspace." };
   }
@@ -176,13 +178,15 @@ export async function linkOidcSub(
     return { error: "Project and OIDC subject are required." };
   }
   const { workspaceId, projectId } = parsed;
-  const proj = await getDb()
-    .select()
-    .from(project)
-    .where(
-      and(eq(project.id, projectId), eq(project.workspaceId, workspaceId)),
-    )
-    .get();
+  const proj = (
+    await getDb()
+      .select()
+      .from(project)
+      .where(
+        and(eq(project.id, projectId), eq(project.workspaceId, workspaceId)),
+      )
+      .limit(1)
+  )[0];
   if (!proj) {
     return { error: "Project not found in that workspace." };
   }

@@ -5,3 +5,4 @@ dist
 *.tsbuildinfo
 data/*.db
 data/*.db-*
+.vercel
