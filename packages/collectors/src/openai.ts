@@ -1,3 +1,4 @@
+import { collectorFetchSignal } from "./fetch-timeout";
 import type { CostCollector, CostLineDraft } from "./types";
 
 type UsageRow = {
@@ -94,6 +95,7 @@ export const openaiCollector: CostCollector = {
             Authorization: `Bearer ${key}`,
             "Content-Type": "application/json",
           },
+          signal: collectorFetchSignal(),
         },
       );
       if (!res.ok) {

@@ -1,3 +1,4 @@
+import { collectorFetchSignal } from "./fetch-timeout";
 import type { CostCollector, CostLineDraft } from "./types";
 
 type CacheCreation = {
@@ -110,6 +111,7 @@ export const anthropicCollector: CostCollector = {
             "x-api-key": key,
             "anthropic-version": "2023-06-01",
           },
+          signal: collectorFetchSignal(),
         },
       );
       if (!res.ok) {

@@ -1,3 +1,4 @@
+import { collectorFetchSignal } from "./fetch-timeout";
 import type { CostCollector, CostLineDraft } from "./types";
 
 type VercelFocusRow = {
@@ -39,6 +40,7 @@ async function resolveVercelTeamId(
   }
   const res = await fetch("https://api.vercel.com/v2/teams?limit=20", {
     headers: { Authorization: `Bearer ${token}` },
+    signal: collectorFetchSignal(),
   });
   if (!res.ok) {
     const body = await res.text().catch(() => "");
@@ -102,6 +104,7 @@ export const vercelCollector: CostCollector = {
           Accept: "application/jsonl",
           "Accept-Encoding": "gzip",
         },
+        signal: collectorFetchSignal(),
       },
     );
     if (!res.ok) {

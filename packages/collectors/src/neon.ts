@@ -1,3 +1,4 @@
+import { collectorFetchSignal } from "./fetch-timeout";
 import type { CostCollector, CostLineDraft } from "./types";
 
 type NeonMetric = { metric_name?: string; value?: number };
@@ -175,6 +176,7 @@ export const neonCollector: CostCollector = {
             Authorization: `Bearer ${apiKey}`,
             Accept: "application/json",
           },
+          signal: collectorFetchSignal(),
         },
       );
       if (!res.ok) {

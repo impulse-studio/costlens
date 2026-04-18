@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 
+import { anthropicCollector } from "./anthropic";
 import { runCollectors } from "./index";
+import type { CostCollector } from "./types";
 
 const ENV_KEYS = [
   "VERCEL_TOKEN",
@@ -47,5 +49,25 @@ describe("runCollectors", () => {
       }
     }
     expect(rows.find((r) => r.provider === "neon")?.items).toEqual([]);
+  });
+
+  it("records a failed result when a collector throws", async () => {
+    const failing: CostCollector = {
+      id: "vercel",
+      async collect() {
+        throw new Error("network");
+      },
+    };
+    const rows = await runCollectors({
+      workspaceSlug: "demo",
+      collectors: [failing, anthropicCollector],
+    });
+    expect(rows).toHaveLength(2);
+    expect(rows[0]).toMatchObject({
+      provider: "vercel",
+      items: [],
+      errorMessage: expect.stringMatching(/Collector failed:/),
+    });
+    expect(rows[1]).toMatchObject({ provider: "anthropic", items: [] });
   });
 });
