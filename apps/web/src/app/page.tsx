@@ -57,8 +57,9 @@ export default async function HomePage() {
             Cost overview
           </h1>
           <p className="mt-2 max-w-xl text-sm text-zinc-600">
-            {appConfig.description} — collectors ship with sample data until API
-            credentials are wired in.
+            {appConfig.description} — Vercel, OpenAI, and Anthropic collectors call
+            live provider APIs when server credentials are set; otherwise they
+            return no rows.
           </p>
         </div>
         <CollectButton />
@@ -120,7 +121,8 @@ export default async function HomePage() {
                       colSpan={4}
                       className="px-4 py-6 text-center text-zinc-500"
                     >
-                      No data yet. Run collectors to ingest sample rows.
+                      No data yet. Run collectors after configuring provider keys in
+                      the server environment.
                     </td>
                   </tr>
                 ) : (
@@ -155,11 +157,16 @@ export default async function HomePage() {
                   key={run.id}
                   className="flex items-center justify-between rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm shadow-sm"
                 >
-                  <div>
+                  <div className="min-w-0 flex-1 pr-2">
                     <p className="font-medium text-zinc-900">{run.provider}</p>
                     <p className="text-xs text-zinc-500">
                       {run.status} · {run.itemCount} items
                     </p>
+                    {run.errorMessage ? (
+                      <p className="mt-1 break-words text-xs text-rose-700">
+                        {run.errorMessage}
+                      </p>
+                    ) : null}
                   </div>
                   <span
                     className={

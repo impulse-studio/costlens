@@ -73,7 +73,9 @@ function rangeIso30d(): { start: string; end: string; label: string } {
 export const anthropicCollector: CostCollector = {
   id: "anthropic",
   async collect({ workspaceSlug }) {
-    const key = process.env.ANTHROPIC_ADMIN_KEY?.trim();
+    const key =
+      process.env.ANTHROPIC_ADMIN_KEY?.trim() ||
+      process.env.ANTHROPIC_API_KEY?.trim();
     if (!key) {
       return { provider: "anthropic", items: [] };
     }

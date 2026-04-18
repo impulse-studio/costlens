@@ -55,7 +55,9 @@ function dollarsToCents(amount: number): number {
 export const openaiCollector: CostCollector = {
   id: "openai",
   async collect({ workspaceSlug }) {
-    const key = process.env.OPENAI_ADMIN_KEY?.trim();
+    const key =
+      process.env.OPENAI_ADMIN_KEY?.trim() ||
+      process.env.OPENAI_API_KEY?.trim();
     if (!key) {
       return { provider: "openai", items: [] };
     }

@@ -6,7 +6,9 @@ const ENV_KEYS = [
   "VERCEL_TOKEN",
   "VERCEL_TEAM_ID",
   "OPENAI_ADMIN_KEY",
+  "OPENAI_API_KEY",
   "ANTHROPIC_ADMIN_KEY",
+  "ANTHROPIC_API_KEY",
 ] as const;
 
 describe("runCollectors", () => {
