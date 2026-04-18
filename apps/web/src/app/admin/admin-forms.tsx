@@ -170,7 +170,8 @@ export function LinkApiKeyForm({
           <select className={fieldClass} name="provider" required defaultValue="openai">
             <option value="openai">openai</option>
             <option value="vercel">vercel</option>
-            <option value="aws">aws</option>
+            <option value="anthropic">anthropic</option>
+            <option value="neon">neon</option>
           </select>
         </label>
         <label className={labelClass}>

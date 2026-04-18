@@ -3,14 +3,21 @@ import {
   type CostLensDb,
   collectorRun,
   costLineItem,
+  project,
 } from "@costlens/database";
+import { eq } from "drizzle-orm";
 
 import { ensureWorkspace } from "@/lib/workspace";
 
 export type IngestSummary = {
   workspaceId: string;
   inserted: number;
-  runs: { provider: string; status: string; itemCount: number }[];
+  runs: {
+    provider: string;
+    status: string;
+    itemCount: number;
+    errorMessage?: string;
+  }[];
 };
 
 export async function ingestWorkspaceCosts(
@@ -18,7 +25,14 @@ export async function ingestWorkspaceCosts(
   workspaceSlug: string,
 ): Promise<IngestSummary> {
   const ws = await ensureWorkspace(db, workspaceSlug);
-  const results = await runCollectors({ workspaceSlug });
+  const projectRows = await db
+    .select({ vercelProjectId: project.vercelProjectId })
+    .from(project)
+    .where(eq(project.workspaceId, ws.id));
+  const vercelProjectId =
+    projectRows.map((p) => p.vercelProjectId).find((id) => id?.trim()) ??
+    null;
+  const results = await runCollectors({ workspaceSlug, vercelProjectId });
   let inserted = 0;
   const runs: IngestSummary["runs"] = [];
 
@@ -40,6 +54,7 @@ export async function ingestWorkspaceCosts(
         provider: result.provider,
         status: "failed",
         itemCount: 0,
+        errorMessage: result.errorMessage,
       });
       continue;
     }

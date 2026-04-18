@@ -104,7 +104,7 @@ export async function createProject(
   return { ok: `Project “${slug}” created.` };
 }
 
-const PROVIDERS = new Set(["vercel", "openai", "aws"]);
+const PROVIDERS = new Set(["vercel", "openai", "anthropic", "neon"]);
 
 function parseWorkspaceProject(raw: string): { workspaceId: string; projectId: string } | null {
   const parts = raw.split("::");
