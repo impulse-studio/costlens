@@ -3,6 +3,7 @@ import { desc, eq, sql } from "drizzle-orm";
 import { collectorRun, costLineItem } from "@costlens/database";
 
 import { CollectButton } from "./collect-button";
+import { DashboardPoll } from "./dashboard-poll";
 import { appConfig } from "./app.config";
 import { getDb } from "@/lib/db";
 import { DEFAULT_WORKSPACE_SLUG, ensureWorkspace } from "@/lib/workspace";
@@ -63,6 +64,17 @@ export default async function HomePage() {
         <CollectButton />
       </header>
 
+      <div className="mt-4 space-y-2">
+        <DashboardPoll />
+        <p className="text-xs text-zinc-500">
+          Background ingest: set <code className="rounded bg-zinc-100 px-1">COSTLENS_POLL_SECRET</code> then
+          call <code className="rounded bg-zinc-100 px-1">GET /api/poll</code> or{" "}
+          <code className="rounded bg-zinc-100 px-1">POST /api/poll</code> with{" "}
+          <code className="rounded bg-zinc-100 px-1">Authorization: Bearer …</code> or header{" "}
+          <code className="rounded bg-zinc-100 px-1">x-costlens-secret</code>.
+        </p>
+      </div>
+
       <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl border border-zinc-200 bg-white p-4 shadow-sm">
           <p className="text-xs font-medium uppercase text-zinc-500">
@@ -97,6 +109,7 @@ export default async function HomePage() {
                 <tr>
                   <th className="px-4 py-2">Provider</th>
                   <th className="px-4 py-2">Service</th>
+                  <th className="px-4 py-2">Period</th>
                   <th className="px-4 py-2 text-right">Amount</th>
                 </tr>
               </thead>
@@ -104,7 +117,7 @@ export default async function HomePage() {
                 {lines.length === 0 ? (
                   <tr>
                     <td
-                      colSpan={3}
+                      colSpan={4}
                       className="px-4 py-6 text-center text-zinc-500"
                     >
                       No data yet. Run collectors to ingest sample rows.
@@ -117,6 +130,7 @@ export default async function HomePage() {
                         {line.provider}
                       </td>
                       <td className="px-4 py-2 text-zinc-600">{line.service}</td>
+                      <td className="px-4 py-2 text-zinc-500">{line.periodLabel}</td>
                       <td className="px-4 py-2 text-right font-medium text-zinc-900">
                         {formatUsd(line.amountCents)}
                       </td>

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    name: Install, schema, build, test
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Apply Drizzle schema (local SQLite file)
+        run: pnpm db:push
+
+      - name: Build packages + web
+        run: pnpm --filter @costlens/web build
+
+      - name: Test collectors
+        run: pnpm --filter @costlens/collectors test
+
+      - name: Test database package
+        run: pnpm --filter @costlens/database test
