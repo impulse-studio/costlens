@@ -9,6 +9,9 @@ const ENV_KEYS = [
   "OPENAI_API_KEY",
   "ANTHROPIC_ADMIN_KEY",
   "ANTHROPIC_API_KEY",
+  "NEON_API_KEY",
+  "NEON_ORG_ID",
+  "NEON_PLAN",
 ] as const;
 
 describe("runCollectors", () => {
@@ -36,13 +39,13 @@ describe("runCollectors", () => {
     const rows = await runCollectors({ workspaceSlug: "demo" });
     expect(rows).toHaveLength(4);
     expect(rows.map((r) => r.provider).sort()).toEqual(
-      ["anthropic", "aws", "openai", "vercel"].sort(),
+      ["anthropic", "neon", "openai", "vercel"].sort(),
     );
     for (const r of rows) {
       for (const item of r.items) {
         expect(item.metadata?.sample).not.toBe(true);
       }
     }
-    expect(rows.find((r) => r.provider === "aws")?.items).toEqual([]);
+    expect(rows.find((r) => r.provider === "neon")?.items).toEqual([]);
   });
 });

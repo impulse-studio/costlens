@@ -57,8 +57,8 @@ export default async function HomePage() {
             Cost overview
           </h1>
           <p className="mt-2 max-w-xl text-sm text-zinc-600">
-            {appConfig.description} — Vercel, OpenAI, and Anthropic collectors call
-            live provider APIs when server credentials are set; otherwise they
+            {appConfig.description} — Vercel, OpenAI, Anthropic, and Neon collectors
+            call live provider APIs when server credentials are set; otherwise they
             return no rows.
           </p>
         </div>

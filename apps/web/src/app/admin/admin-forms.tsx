@@ -171,7 +171,7 @@ export function LinkApiKeyForm({
             <option value="openai">openai</option>
             <option value="vercel">vercel</option>
             <option value="anthropic">anthropic</option>
-            <option value="aws">aws</option>
+            <option value="neon">neon</option>
           </select>
         </label>
         <label className={labelClass}>

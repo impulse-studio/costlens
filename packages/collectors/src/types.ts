@@ -1,4 +1,4 @@
-export type CostProviderId = "vercel" | "openai" | "anthropic" | "aws";
+export type CostProviderId = "vercel" | "openai" | "anthropic" | "neon";
 
 export type CollectorContext = {
   workspaceSlug: string;
