@@ -1,4 +1,9 @@
-export type CostProviderId = "vercel" | "openai" | "aws";
+export type CostProviderId = "vercel" | "openai" | "anthropic" | "aws";
+
+export type CollectorContext = {
+  workspaceSlug: string;
+  vercelProjectId?: string | null;
+};
 
 export type CostLineDraft = {
   projectId?: string;
@@ -19,5 +24,5 @@ export type CollectorResult = {
 
 export type CostCollector = {
   id: CostProviderId;
-  collect: (input: { workspaceSlug: string }) => Promise<CollectorResult>;
+  collect: (input: CollectorContext) => Promise<CollectorResult>;
 };

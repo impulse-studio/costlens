@@ -67,6 +67,9 @@ importers:
 
   packages/collectors:
     devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.19.39
       typescript:
         specifier: ^5
         version: 5.9.3
