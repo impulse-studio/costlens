@@ -1,0 +1,10 @@
+node_modules
+.turbo
+.next
+dist
+*.tsbuildinfo
+data/*.db
+data/*.db-*
+
+# local verification artifacts
+costlens-home.png

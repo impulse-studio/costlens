@@ -1,0 +1,25 @@
+{
+  "name": "costlens",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @costlens/web dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:push": "pnpm --filter @costlens/database db:push",
+    "db:generate": "pnpm --filter @costlens/database db:generate",
+    "db:studio": "pnpm --filter @costlens/database db:studio"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp"],
+    "overrides": {
+      "drizzle-orm": "1.0.0-beta.22",
+      "drizzle-kit": "1.0.0-beta.22"
+    }
+  },
+  "packageManager": "pnpm@10.33.0"
+}
