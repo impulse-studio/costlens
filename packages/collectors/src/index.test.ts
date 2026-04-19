@@ -37,11 +37,11 @@ describe("runCollectors", () => {
     }
   });
 
-  it("runs four collectors and never emits sample metadata", async () => {
+  it("runs default collectors (vercel, neon) and never emits sample metadata", async () => {
     const rows = await runCollectors({ workspaceSlug: "demo" });
-    expect(rows).toHaveLength(4);
+    expect(rows).toHaveLength(2);
     expect(rows.map((r) => r.provider).sort()).toEqual(
-      ["anthropic", "neon", "openai", "vercel"].sort(),
+      ["neon", "vercel"].sort(),
     );
     for (const r of rows) {
       for (const item of r.items) {
