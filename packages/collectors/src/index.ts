@@ -14,8 +14,6 @@ export {
 
 const defaultCollectors: CostCollector[] = [
   vercelCollector,
-  openaiCollector,
-  anthropicCollector,
   neonCollector,
 ];
 
