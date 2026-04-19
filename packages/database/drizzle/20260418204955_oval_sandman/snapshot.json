@@ -1,583 +1,887 @@
 {
-  "version": "7",
-  "dialect": "sqlite",
-  "id": "159c4007-856e-446f-9821-5ada0ce338bc",
+  "version": "8",
+  "dialect": "postgres",
+  "id": "aa3cb7d8-28d5-43bf-a915-94e952cc68f7",
   "prevIds": [
     "00000000-0000-0000-0000-000000000000"
   ],
   "ddl": [
     {
+      "isRlsEnabled": false,
       "name": "api_key_project_mapping",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
+      "isRlsEnabled": false,
       "name": "collector_run",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
+      "isRlsEnabled": false,
       "name": "cost_line_item",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
+      "isRlsEnabled": false,
       "name": "oidc_project_mapping",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
+      "isRlsEnabled": false,
       "name": "project",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
+      "isRlsEnabled": false,
       "name": "workspace",
-      "entityType": "tables"
+      "entityType": "tables",
+      "schema": "public"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "workspace_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "project_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "api_key_prefix",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "api_key_hash",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "provider",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "label",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "created_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "updated_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "workspace_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "provider",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "status",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "integer",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": "0",
       "generated": null,
+      "identity": null,
       "name": "item_count",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "error_message",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "started_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "finished_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "collector_run"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "workspace_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "project_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "provider",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "service",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "integer",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "amount_cents",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": "'USD'",
       "generated": null,
+      "identity": null,
       "name": "currency",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "period_label",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "external_ref",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "metadata_json",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "collected_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "workspace_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "project_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "oidc_sub",
       "entityType": "columns",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "created_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "workspace_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "name",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "slug",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": false,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "vercel_project_id",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "created_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "project"
     },
     {
       "type": "text",
-      "notNull": false,
-      "autoincrement": false,
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "id",
       "entityType": "columns",
+      "schema": "public",
       "table": "workspace"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "name",
       "entityType": "columns",
+      "schema": "public",
       "table": "workspace"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "slug",
       "entityType": "columns",
+      "schema": "public",
       "table": "workspace"
     },
     {
       "type": "text",
+      "typeSchema": null,
       "notNull": true,
-      "autoincrement": false,
+      "dimensions": 0,
       "default": null,
       "generated": null,
+      "identity": null,
       "name": "created_at",
       "entityType": "columns",
+      "schema": "public",
       "table": "workspace"
     },
     {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "project_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "akpm_project_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "api_key_project_mapping"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "workspace_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "akpm_workspace_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "api_key_project_mapping"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "workspace_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "collector_run_workspace_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "collector_run"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "workspace_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "cost_line_item_workspace_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "cost_line_item"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "provider",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "cost_line_item_provider_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "cost_line_item"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "project_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "oidc_pm_project_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "oidc_project_mapping"
+    },
+    {
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "workspace_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "name": "project_workspace_idx",
+      "entityType": "indexes",
+      "schema": "public",
+      "table": "project"
+    },
+    {
+      "nameExplicit": false,
       "columns": [
         "workspace_id"
       ],
+      "schemaTo": "public",
       "tableTo": "workspace",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_api_key_project_mapping_workspace_id_workspace_id_fk",
+      "name": "api_key_project_mapping_workspace_id_workspace_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "project_id"
       ],
+      "schemaTo": "public",
       "tableTo": "project",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_api_key_project_mapping_project_id_project_id_fk",
+      "name": "api_key_project_mapping_project_id_project_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "api_key_project_mapping"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "workspace_id"
       ],
+      "schemaTo": "public",
       "tableTo": "workspace",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_collector_run_workspace_id_workspace_id_fk",
+      "name": "collector_run_workspace_id_workspace_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "collector_run"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "workspace_id"
       ],
+      "schemaTo": "public",
       "tableTo": "workspace",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_cost_line_item_workspace_id_workspace_id_fk",
+      "name": "cost_line_item_workspace_id_workspace_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "project_id"
       ],
+      "schemaTo": "public",
       "tableTo": "project",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "SET NULL",
-      "nameExplicit": false,
-      "name": "fk_cost_line_item_project_id_project_id_fk",
+      "name": "cost_line_item_project_id_project_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "cost_line_item"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "workspace_id"
       ],
+      "schemaTo": "public",
       "tableTo": "workspace",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_oidc_project_mapping_workspace_id_workspace_id_fk",
+      "name": "oidc_project_mapping_workspace_id_workspace_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "project_id"
       ],
+      "schemaTo": "public",
       "tableTo": "project",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_oidc_project_mapping_project_id_project_id_fk",
+      "name": "oidc_project_mapping_project_id_project_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "oidc_project_mapping"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "workspace_id"
       ],
+      "schemaTo": "public",
       "tableTo": "workspace",
       "columnsTo": [
         "id"
       ],
       "onUpdate": "NO ACTION",
       "onDelete": "CASCADE",
-      "nameExplicit": false,
-      "name": "fk_project_workspace_id_workspace_id_fk",
+      "name": "project_workspace_id_workspace_id_fkey",
       "entityType": "fks",
+      "schema": "public",
       "table": "project"
     },
     {
@@ -585,7 +889,8 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "api_key_project_mapping_pk",
+      "name": "api_key_project_mapping_pkey",
+      "schema": "public",
       "table": "api_key_project_mapping",
       "entityType": "pks"
     },
@@ -594,7 +899,8 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "collector_run_pk",
+      "name": "collector_run_pkey",
+      "schema": "public",
       "table": "collector_run",
       "entityType": "pks"
     },
@@ -603,7 +909,8 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "cost_line_item_pk",
+      "name": "cost_line_item_pkey",
+      "schema": "public",
       "table": "cost_line_item",
       "entityType": "pks"
     },
@@ -612,7 +919,8 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "oidc_project_mapping_pk",
+      "name": "oidc_project_mapping_pkey",
+      "schema": "public",
       "table": "oidc_project_mapping",
       "entityType": "pks"
     },
@@ -621,7 +929,8 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "project_pk",
+      "name": "project_pkey",
+      "schema": "public",
       "table": "project",
       "entityType": "pks"
     },
@@ -630,135 +939,44 @@
         "id"
       ],
       "nameExplicit": false,
-      "name": "workspace_pk",
+      "name": "workspace_pkey",
+      "schema": "public",
       "table": "workspace",
       "entityType": "pks"
     },
     {
-      "columns": [
-        {
-          "value": "project_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "akpm_project_idx",
-      "entityType": "indexes",
-      "table": "api_key_project_mapping"
-    },
-    {
-      "columns": [
-        {
-          "value": "workspace_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "akpm_workspace_idx",
-      "entityType": "indexes",
-      "table": "api_key_project_mapping"
-    },
-    {
-      "columns": [
-        {
-          "value": "workspace_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "collector_run_workspace_idx",
-      "entityType": "indexes",
-      "table": "collector_run"
-    },
-    {
-      "columns": [
-        {
-          "value": "workspace_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "cost_line_item_workspace_idx",
-      "entityType": "indexes",
-      "table": "cost_line_item"
-    },
-    {
-      "columns": [
-        {
-          "value": "provider",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "cost_line_item_provider_idx",
-      "entityType": "indexes",
-      "table": "cost_line_item"
-    },
-    {
-      "columns": [
-        {
-          "value": "project_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "oidc_pm_project_idx",
-      "entityType": "indexes",
-      "table": "oidc_project_mapping"
-    },
-    {
-      "columns": [
-        {
-          "value": "workspace_id",
-          "isExpression": false
-        }
-      ],
-      "isUnique": false,
-      "where": null,
-      "origin": "manual",
-      "name": "project_workspace_idx",
-      "entityType": "indexes",
-      "table": "project"
-    },
-    {
+      "nameExplicit": true,
       "columns": [
         "workspace_id",
         "slug"
       ],
-      "nameExplicit": true,
+      "nullsNotDistinct": false,
       "name": "project_slug_workspace_unique",
       "entityType": "uniques",
+      "schema": "public",
       "table": "project"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "api_key_hash"
       ],
-      "nameExplicit": false,
-      "name": "api_key_project_mapping_api_key_hash_unique",
-      "entityType": "uniques",
-      "table": "api_key_project_mapping"
+      "nullsNotDistinct": false,
+      "name": "api_key_project_mapping_api_key_hash_key",
+      "schema": "public",
+      "table": "api_key_project_mapping",
+      "entityType": "uniques"
     },
     {
+      "nameExplicit": false,
       "columns": [
         "slug"
       ],
-      "nameExplicit": false,
-      "name": "workspace_slug_unique",
-      "entityType": "uniques",
-      "table": "workspace"
+      "nullsNotDistinct": false,
+      "name": "workspace_slug_key",
+      "schema": "public",
+      "table": "workspace",
+      "entityType": "uniques"
     }
   ],
   "renames": []

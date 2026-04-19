@@ -12,12 +12,14 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@libsql/client": "^0.15.15",
+    "@neondatabase/serverless": "^1.0.1",
     "drizzle-orm": "1.0.0-beta.22"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.11.6",
     "drizzle-kit": "1.0.0-beta.22",
+    "pg": "^8.13.1",
     "typescript": "^5",
     "vitest": "^4.1.2"
   },

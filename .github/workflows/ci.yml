@@ -9,6 +9,22 @@ jobs:
   ci:
     name: Install, schema, build, test
     runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: costlens_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d costlens_ci"
+          --health-interval 4s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/costlens_ci
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +39,7 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
-      - name: Apply Drizzle schema (local SQLite file)
+      - name: Apply Drizzle schema (Postgres)
         run: pnpm db:push
 
       - name: Build packages + web
