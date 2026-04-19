@@ -9,7 +9,7 @@ export async function sha256Hex(value: string): Promise<string> {
 export function apiKeyDisplayPrefix(apiKey: string): string {
   const t = apiKey.trim();
   if (t.length <= 12) {
-    return t;
+    return t.slice(0, 4);
   }
   return `${t.slice(0, 8)}…${t.slice(-4)}`;
 }
